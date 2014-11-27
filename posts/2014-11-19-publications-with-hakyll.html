@@ -1,0 +1,123 @@
+assets/<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Damien Couroussé - generating page contents from org-mode files</title>
+<meta name="description" content>
+<meta name="Damien Couroussé" content>
+
+<li><link rel="stylesheet" href="../assets/css/pure-min.css"></li>
+<li><link rel="stylesheet" href="../assets/css/side-menu.css"></li>
+<li><link rel="stylesheet" href="../assets/css/main.css"></li>
+
+<body>
+<div id="layout">
+	<!-- Menu toggle -->
+	<a href="#menu" id="menuLink" class="menu-link">
+		<!-- Hamburger icon -->
+		<span></span>
+	</a>
+	<div id="menu">
+		<div class="pure-menu pure-menu-open">
+			<a class="pure-menu-heading" href="../index.html">Home</a>
+
+			<ul>
+				<!-- <li><a href="/about.html">About</a></li> -->
+				<!-- <li><a href="/contact.html">Contact</a></li> -->
+				<li><a href="../publi.html">Publications</a></li>
+				<li><a href="../posts.html">Posts</a></li>
+				<li><a href="../sw.html">Software</a></li>
+				<!-- <li><a href="/test.html">Test</a></li> -->
+			</ul>
+		</div>
+	</div>
+
+	<div id="main">
+		<div class="header">
+			<h1>generating page contents from org-mode files</h1>
+			<!--<h2>A subtitle for your page goes here</h2>-->
+		</div>
+
+		<div class="content">
+			<!--<h2 class="content-subhead">generating page contents from org-mode files</h2>-->
+			<div class="content">
+    Posted on November 19, 2014
+    
+</div>
+
+<p>The markdown format is nice, but considering that I use extensively use <a href="http://orgmode.org">OrgMode</a>, I investigated a bit to use org-mode files for generating the contents of this website.</p>
+<h1>Metadata</h1>
+<p>Org files have their own metadata format. Metadata are defined inside the file, for example as follows:</p>
+<pre class="example"><code>#FILE: mypage.org
+#+TITLE: A page title
+</code></pre>
+<p>However, Hakyll-specific metadata or custom metadata for your build system are not recognised in org files. In this case, it is possible to <a href="http://jaspervdj.be/hakyll/tutorials/02-basics.html#pages-and-metadata">create a metadata file</a> that will describe your metadata with the syntax used by Hakyll:</p>
+<pre class="example"><code>#FILE: mypage.org.metadata
+---
+title: A page title
+---
+</code></pre>
+<p>When a metadata file is used, its contents override the metadata fields described in the org file.</p>
+<h1>Example: generation of pages from org-mode files</h1>
+<p>A simple build rule for Hakyll could be:</p>
+<pre class="sourceCode Haskell"><code class="sourceCode haskell">    <span class="co">-- Static pages</span>
+    match <span class="st">&quot;pages/*.org&quot;</span> <span class="fu">$</span> <span class="kw">do</span>
+        route <span class="fu">$</span> gsubRoute <span class="st">&quot;pages/&quot;</span> (const <span class="st">&quot;&quot;</span>) <span class="ot">`composeRoutes`</span> setExtension <span class="st">&quot;html&quot;</span>
+        compile <span class="fu">$</span> <span class="kw">do</span>
+            pandocCompiler
+                <span class="fu">&gt;&gt;=</span> loadAndApplyTemplate <span class="st">&quot;templates/default.html&quot;</span> defaultContext
+                <span class="fu">&gt;&gt;=</span> relativizeUrls</code></pre>
+<h1>Including bibliographic references</h1>
+<p>In org-mode files, the biblio reference is included with this format : <code>[@hennessy]</code>.</p>
+<p>The output is generated as follows, according to the <code>csl</code> file selected, and to the contents of the bibtex file:</p>
+<p><span class="citation">[@hennessy]</span></p>
+<h2>pandoc: usage example</h2>
+<pre class="example"><code>pandoc -f org -t plain  --bibliography ../assets/bib/main.bib --csl ../assets/csl/jcsl.csl  -s test.org  -o citations.txt
+</code></pre>
+<h2>build rule for Hakyll</h2>
+<p>I have adapted the Hakyll build system of <a href="https://github.com/jtanguy/julien.jhome.fr.git">Julien Tanguy</a>. As soon as a bibtex file, and possibly a csl file, are declared in the metadata of the source file, <code>bibtexCompiler</code> is selected.</p>
+<p>The Hakyll build rule for org-mode files becomes:</p>
+<pre class="sourceCode Haskell"><code class="sourceCode haskell">    <span class="co">-- Static pages</span>
+    match (<span class="st">&quot;pages/*.markdown&quot;</span> <span class="fu">.||.</span> <span class="st">&quot;pages/*.org&quot;</span>) <span class="fu">$</span> <span class="kw">do</span>
+        route <span class="fu">$</span> gsubRoute <span class="st">&quot;pages/&quot;</span> (const <span class="st">&quot;&quot;</span>) <span class="ot">`composeRoutes`</span> setExtension <span class="st">&quot;html&quot;</span>
+        compile <span class="fu">$</span> <span class="kw">do</span>
+            item <span class="ot">&lt;-</span> getUnderlying
+            bibFile <span class="ot">&lt;-</span> liftM (fromMaybe <span class="st">&quot;&quot;</span>) <span class="fu">$</span> getMetadataField item <span class="st">&quot;biblio&quot;</span>
+            cslFile <span class="ot">&lt;-</span> liftM (fromMaybe <span class="st">&quot;chicago.csl&quot;</span>) <span class="fu">$</span> getMetadataField item <span class="st">&quot;csl&quot;</span>
+            <span class="kw">let</span> compiler <span class="fu">=</span> <span class="kw">if</span> bibFile <span class="fu">/=</span> <span class="st">&quot;&quot;</span> <span class="kw">then</span>
+                                bibtexCompiler cslFile bibFile
+                           <span class="kw">else</span> pandocCompiler
+            compiler
+                <span class="fu">&gt;&gt;=</span> loadAndApplyTemplate <span class="st">&quot;templates/default.html&quot;</span> defaultContext
+                <span class="fu">&gt;&gt;=</span> relativizeUrls</code></pre>
+<p>An example of metadata declaration follows:</p>
+<pre class="example"><code>#FILE: mypage.org.metadata
+title: My org page
+biblio: main.bib
+csl: jcsl.csl
+</code></pre>
+<h3>Csl Trick</h3>
+<p>TODO: describe this.</p>
+<p>How to generate bibliographic references from the biblio reference instead of the biblio citation.</p>
+
+		</div> <!-- /content -->
+	</div> <!-- /main -->
+
+	<div class="footer">
+		<div class="pure-g">
+			<div class="pure-u-1 u-sm-1-2">
+				Site generated by
+				<a href="http://jaspervdj.be/hakyll">Hakyll</a>
+			</div>
+		</div>
+	</div>
+
+</div> <!-- /layout -->
+
+<script src="../assets/js/ui.js"></script>
+
+
+</body>
+</html>
