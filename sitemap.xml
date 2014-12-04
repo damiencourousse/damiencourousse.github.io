@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
+xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+
+<url>
+	<loc>http://damien.courousse.fr/index.html</loc>
+	<lastmod>2014-12-01</lastmod>
+	<changefreq>weekly</changefreq>
+	<priority>0.5</priority>
+</url>
+
+<url>
+	<loc>http://damien.courousse.fr/publi.html</loc>
+	<lastmod>2014-12-01</lastmod>
+	<changefreq>weekly</changefreq>
+	<priority>0.5</priority>
+</url>
+
+<url>
+	<loc>http://damien.courousse.fr/sw.html</loc>
+	<lastmod>2014-12-01</lastmod>
+	<changefreq>weekly</changefreq>
+	<priority>0.5</priority>
+</url>
+
+
+
+<url>
+	<loc>http://damien.courousse.fr/posts/2014-11-19-publications-with-hakyll.html</loc>
+	<lastmod>2014-11-19</lastmod>
+	<changefreq>monthly</changefreq>
+	<priority>0.5</priority>
+</url>
+
+<url>
+	<loc>http://damien.courousse.fr/posts/2014-11-27-deploy-hakyll-to-github.html</loc>
+	<lastmod>2014-11-27</lastmod>
+	<changefreq>monthly</changefreq>
+	<priority>0.5</priority>
+</url>
+
+</urlset>
