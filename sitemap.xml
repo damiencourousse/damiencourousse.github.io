@@ -6,14 +6,14 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 	<loc>http://damien.courousse.fr/index.html</loc>
-	<lastmod>2014-12-01</lastmod>
+	<lastmod>2014-12-16</lastmod>
 	<changefreq>weekly</changefreq>
 	<priority>0.5</priority>
 </url>
 
 <url>
-	<loc>http://damien.courousse.fr/publi.html</loc>
-	<lastmod>2014-12-01</lastmod>
+	<loc>http://damien.courousse.fr/publications.html</loc>
+	<lastmod>2014-12-16</lastmod>
 	<changefreq>weekly</changefreq>
 	<priority>0.5</priority>
 </url>
