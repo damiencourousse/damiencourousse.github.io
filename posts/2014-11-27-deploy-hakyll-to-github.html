@@ -64,7 +64,7 @@
 <p>Most of the times, you build your site sources with:</p>
 <pre class="example"><code>cabal run build
 </code></pre>
-<p>and all is perfect. The directory <code>_site</code> is updated and, in case you declared <code>_site</code> as a submodule, everything is fine and the contents of the submodule are correctly updated. The only precaution to take is to be sure that <code>_site</code> is not on a 'detached HEAD' state.</p>
+<p>and all is perfect. The directory <code>_site</code> is updated and, in case you declared <code>_site</code> as a submodule, everything is fine and the contents of the submodule are correctly updated. The only precaution to take is to be sure that <code>_site</code> is not on a ‘detached HEAD’ state.</p>
 <p>Imagine now that you run instead:</p>
 <pre class="example"><code>cabal run rebuild
 </code></pre>
@@ -74,7 +74,7 @@
 <pre class="example"><code>git submodule udpate --remote
 </code></pre>
 <p>To avoid this problem, it is necessary to use two separate directories for the build directory used by Hakyll, and the git submodule used to push the files of your website to github. Hakyll uses <code>_site</code> as a build directory, and I created a submodule in <code>site</code>.</p>
-To summarise, the build/update process involves these steps:
+<p>To summarise, the build/update process involves these steps:</p>
 <ol>
 <li>hakyll build</li>
 <li>set your build submodule (e.g. <code>site</code>) to the default branch (e.g. <code>master</code>)</li>
