@@ -84,23 +84,23 @@
 <p>I pushed all of this in a minimalist <code>Makefile</code> (my submodule lies in <code>site</code>):</p>
 <pre class="example"><code>.PHONY: build rebuild watch
 build:
-	cabal run $@
+    cabal run $@
 rebuild:
-	cabal run $@
+    cabal run $@
 watch:
-	cabal run $@
+    cabal run $@
 
 push: rebuild
-	git submodule update --remote --merge
-	rsync -avr --delete --exclude='.git'  _site/ site/
-	cd site \
-		&amp;&amp; git checkout master \
-		&amp;&amp; git add . \
-		&amp;&amp; git commit -m 'site update' \
-		&amp;&amp; git push origin master
-	git add site
-	git commit -m 'site update'
-	git push origin master
+    git submodule update --remote --merge
+    rsync -avr --delete --exclude='.git'  _site/ site/
+    cd site \
+        &amp;&amp; git checkout master \
+        &amp;&amp; git add . \
+        &amp;&amp; git commit -m 'site update' \
+        &amp;&amp; git push origin master
+    git add site
+    git commit -m 'site update'
+    git push origin master
 </code></pre>
 
 						</div>
