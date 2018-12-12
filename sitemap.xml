@@ -3,14 +3,14 @@
 
     <url>
         <loc>http://damien.courousse.fr/index.html</loc>
-        <lastmod>2018-03-12</lastmod>
+        <lastmod>2018-12-11</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>http://damien.courousse.fr/publications.html</loc>
-        <lastmod>2018-08-14</lastmod>
+        <lastmod>2018-12-11</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>

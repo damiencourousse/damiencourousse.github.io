@@ -63,13 +63,13 @@
 <p>The markdown format is nice, but considering that I extensively use <a href="http://orgmode.org">OrgMode</a>, I investigated a bit to use org-mode files for generating the contents of this website. Indeed, org-mode files are supported by pandoc since version 1.12, which has been integrated in <a href="http://jaspervdj.be/hakyll/releases.html">hakyll 4.5.2</a>.</p>
 <h1 id="generation-of-pages-from-org-mode-files">Generation of pages from org-mode files</h1>
 <p>This is straightforward. Here is an example of a simple build rule for Hakyll:</p>
-<div class="sourceCode"><pre class="sourceCode Haskell"><code class="sourceCode haskell"><span class="co">-- Static pages</span>
-match <span class="st">&quot;pages/*.org&quot;</span> <span class="fu">$</span> <span class="kw">do</span>
-    route <span class="fu">$</span> gsubRoute <span class="st">&quot;pages/&quot;</span> (const <span class="st">&quot;&quot;</span>) <span class="ot">`composeRoutes`</span> setExtension <span class="st">&quot;html&quot;</span>
-    compile <span class="fu">$</span> <span class="kw">do</span>
-        pandocCompiler
-            <span class="fu">&gt;&gt;=</span> loadAndApplyTemplate <span class="st">&quot;templates/default.html&quot;</span> defaultContext
-            <span class="fu">&gt;&gt;=</span> relativizeUrls</code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode Haskell"><code class="sourceCode haskell"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co">-- Static pages</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">match <span class="st">&quot;pages/*.org&quot;</span> <span class="fu">$</span> <span class="kw">do</span></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">    route <span class="fu">$</span> gsubRoute <span class="st">&quot;pages/&quot;</span> (const <span class="st">&quot;&quot;</span>) <span class="ot">`composeRoutes`</span> setExtension <span class="st">&quot;html&quot;</span></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">    compile <span class="fu">$</span> <span class="kw">do</span></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">        pandocCompiler</a>
+<a class="sourceLine" id="cb1-6" data-line-number="6">            <span class="fu">&gt;&gt;=</span> loadAndApplyTemplate <span class="st">&quot;templates/default.html&quot;</span> defaultContext</a>
+<a class="sourceLine" id="cb1-7" data-line-number="7">            <span class="fu">&gt;&gt;=</span> relativizeUrls</a></code></pre></div>
 <h1 id="metadata">Metadata</h1>
 <p>Metadata are defined in an org-mode file with a dedicated format :</p>
 <pre class="example"><code>#FILE: mypage.org
