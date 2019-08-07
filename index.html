@@ -1,90 +1,104 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		<title>Damien Couroussé - damien couroussé</title>
-		<meta name="description" content="damien dot courousse dot fr">
-		<meta name="author" content="Damien Couroussé">
+    <title>Damien Couroussé - damien couroussé</title>
+    <meta name="description" content="damien dot courousse dot fr">
+    <meta name="author" content="Damien Couroussé">
 
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css">
 
-		<link rel="stylesheet" href="https://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="/assets/css/side-menu-old-ie.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="./assets/css/side-menu.css">
+    <!--<![endif]-->
 
-	<!--[if lte IE 8]>
-		<link rel="stylesheet" href="/assets/css/side-menu-old-ie.css">
-	<![endif]-->
-	<!--[if gt IE 8]><!-->
-		<link rel="stylesheet" href="./assets/css/side-menu.css">
-	<!--<![endif]-->
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="./assets/css/img-overlay.css">
 
-		<link rel="stylesheet" href="./assets/css/main.css">
-		<link rel="stylesheet" href="https://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
-	</head>
+  </head>
 
-	<body>
-		<div id="layout">
-			<!-- Menu toggle -->
-			<a href="#menu" id="menuLink" class="menu-link">
-				<!-- Hamburger icon -->
-				<span></span>
-			</a>
-			<div id="menu">
-				<div class="pure-menu pure-menu-open">
-					<a class="pure-menu-heading" href="./index.html">Home</a>
+  <body>
+    <div id="layout">
+      <!-- Menu toggle -->
+      <a href="#menu" id="menuLink" class="menu-link">
+        <!-- Hamburger icon -->
+        <span></span>
+      </a>
+      <div id="menu">
+        <div class="pure-menu pure-menu-open">
+          <a class="pure-menu-heading" href="./index.html">Home</a>
 
-					<ul class="pure-menu-list">
-						<li class="pure-menu-item">
-							<a href="./publications.html" class="pure-menu-link">Publications</a>
-						</li>
-						<li class="pure-menu-item">
-							<a href="./posts.html" class="pure-menu-link">Posts</a>
-						</li>
-						<!-- <li class="pure-menu-item"> -->
-						<!-- 	<a href="/sw.html" class="pure-menu-link">Software</a> -->
-						<!-- </li> -->
-					</ul>
-				</div>
-			</div> <!-- /menu -->
+          <ul class="pure-menu-list">
+            <li class="pure-menu-item">
+              <a href="./publications.html" class="pure-menu-link">Publications</a>
+            </li>
+            <!-- <li class="pure-menu-item"> -->
+              <!-- 	<a href="/posts.html" class="pure-menu-link">Posts</a> -->
+              <!-- </li> -->
+            <!-- <li class="pure-menu-item"> -->
+              <!-- 	<a href="/sw.html" class="pure-menu-link">Software</a> -->
+              <!-- </li> -->
+            <li class="pure-menu-item">
+              <a href="./expressions-urbaines.html" class="pure-menu-link">Expressions urbaines</a>
+            </li>
+          </ul>
+        </div>
+      </div> <!-- /menu -->
 
-			<div id="main">
-				<div class="header">
-					<h1>damien couroussé</h1>
-				</div>
+      <div id="main">
+        <div class="header">
+          <h1>damien couroussé</h1>
+        </div>
 
-				<div class="content">
-					<div class="pure-g">
-						<div class="pure-u-1">
-							<div class="pure-u-1 pure-u-md-2-3">
+        <div class="content">
+          <div class="pure-g">
+            <div class="pure-u-1">
+              <div class="pure-u-1 pure-u-md-2-3">
 <div class="l-box">
-<p>I am research engineer at <a href="http://www.cea.fr/technologies">CEA</a>-<a href="http://www-list.cea.fr">LIST</a> in Grenoble.</p>
+
+<p>I am research engineer at <a href="http://www.cea.fr/technologies">CEA</a>-<a href="http://www-list.cea.fr">LIST</a> in <a href="http://www.cea.fr/le-cea/les-centres-cea/grenoble">Grenoble</a>.</p>
 <p>In a nutshell: I am interested in embedded software in its large understanding, in particular in compilation and runtime code generation for performance and <a href="http://www.cogito-anr.fr">cyber-security purposes</a>.</p>
-<p>Past topics: <a href="http://acroe.imag.fr/ergos-technologies">Cyber-physical systems</a> dedicated to <a href="http://www.enactive2007.org">human-machine interaction</a> (otherwise called <em>haptic systems</em>).</p>
+<p>Past topics: <a href="http://acroe.imag.fr/ergos-technologies">Cyber-physical systems</a> dedicated to <a href="http://www.enactive2007.org">human-machine interaction</a> (otherwise called <span class="underline">haptic systems</span>).</p>
 </div>
 </div>
+
 <div class="pure-u-1 pure-u-md-7-24">
-<p><img class="pure-img" src="./images/damien.jpg" alt="Damien Couroussé" style="padding=1em; width: 200px;" /></p>
+<img class="pure-img" src="./images/damien.jpg" alt="Damien Couroussé" style="padding=1em; width: 200px;" />
 </div>
-						</div>
-					</div> <!-- pure-g -->
-				</div> <!-- /content -->
-			</div> <!-- /main -->
 
-			<footer id="footer">
-				<div class="footer">
-					<p style="text-align:center; font-size:75%">
-					Site generated by <a href="https://jaspervdj.be/hakyll">Hakyll</a>
-					and <a href="https://pandoc.org">pandoc</a>
-					</p>
-					<p style="text-align:center; font-size:75%">
-                    <a href="https://github.com/damiencourousse/damiencourousse.github.io/commits/master">Page last modified Tue, 11 Dec 2018 22:45:52 +0100</a> </p>
-				</div>
-			</footer>
+            </div>
+          </div> <!-- pure-g -->
+        </div> <!-- /content -->
+      </div> <!-- /main -->
 
+      <footer id="footer">
+        <div class="footer">
+          <p style="text-align:center; font-size:75%">
+            Site generated by <a href="https://jaspervdj.be/hakyll">Hakyll</a>
+            and <a href="https://pandoc.org">pandoc</a>
+          </p>
+
+          
+          <p style="text-align:center; font-size:75%">
+            <a href="https://github.com/damiencourousse/damiencourousse.github.io/commits/master">
+              Page last modified Tue, 30 Jul 2019 19:34:57 +0200
+            </a>
+          </p>
+          
+          <br>
+        </div>
+      </footer>
 
 		</div> <!-- /layout -->
 
-		<script src="./assets/js/ui.js"></script>
+    </div> <!-- /layout -->
 
-	</body>
+    <script src="./assets/js/ui.js"></script>
+
+  </body>
 </html>

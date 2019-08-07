@@ -3,28 +3,28 @@
 
     <url>
         <loc>http://damien.courousse.fr/index.html</loc>
-        <lastmod>2018-12-11</lastmod>
+        <lastmod>Tue, 30 Jul 2019 19:34:57 +0200</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>http://damien.courousse.fr/publications.html</loc>
-        <lastmod>2019-06-28</lastmod>
+        <lastmod>Fri, 19 Jul 2019 20:56:29 +0200</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>http://damien.courousse.fr/posts/2014-11-19-publications-with-hakyll.html</loc>
-        <lastmod>2015-02-25</lastmod>
+        <lastmod>Wed, 25 Feb 2015 15:55:42 +0100</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
         <loc>http://damien.courousse.fr/posts/2014-11-27-deploy-hakyll-to-github.html</loc>
-        <lastmod>2014-12-16</lastmod>
+        <lastmod>Tue, 16 Dec 2014 16:01:33 +0100</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
