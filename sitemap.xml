@@ -2,35 +2,35 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <url>
-        <loc>http://damien.courousse.fr/index.html</loc>
+        <loc>https://damien.courousse.fr/index.html</loc>
         <lastmod>Tue, 30 Jul 2019 19:34:57 +0200</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
-        <loc>http://damien.courousse.fr/latex-writing.html</loc>
+        <loc>https://damien.courousse.fr/latex-writing.html</loc>
         <lastmod>Fri, 20 Dec 2019 15:16:37 +0100</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
-        <loc>http://damien.courousse.fr/publications.html</loc>
+        <loc>https://damien.courousse.fr/publications.html</loc>
         <lastmod>Wed, 21 Aug 2019 10:56:00 +0200</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
-        <loc>http://damien.courousse.fr/posts/2014-11-19-publications-with-hakyll.html</loc>
+        <loc>https://damien.courousse.fr/posts/2014-11-19-publications-with-hakyll.html</loc>
         <lastmod>Wed, 25 Feb 2015 15:55:42 +0100</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
-        <loc>http://damien.courousse.fr/posts/2014-11-27-deploy-hakyll-to-github.html</loc>
+        <loc>https://damien.courousse.fr/posts/2014-11-27-deploy-hakyll-to-github.html</loc>
         <lastmod>Tue, 16 Dec 2014 16:01:33 +0100</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
