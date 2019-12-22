@@ -9,6 +9,13 @@
     </url>
 
     <url>
+        <loc>http://damien.courousse.fr/latex-writing.html</loc>
+        <lastmod>Fri, 20 Dec 2019 15:16:37 +0100</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
         <loc>http://damien.courousse.fr/publications.html</loc>
         <lastmod>Wed, 21 Aug 2019 10:56:00 +0200</lastmod>
         <changefreq>weekly</changefreq>
