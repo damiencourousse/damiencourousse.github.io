@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Damien Couroussé - Suggestions for improving scientific writings and the use of LaTeX</title>
+    <title>Damien Couroussé - latex-writing</title>
     <meta name="description" content="damien dot courousse dot fr">
     <meta name="author" content="Damien Couroussé">
 
@@ -52,13 +52,14 @@
 
       <div id="main">
         <div class="header">
-          <h1>Suggestions for improving scientific writings and the use of LaTeX</h1>
+          <h1>latex-writing</h1>
         </div>
 
         <div class="content">
           <div class="pure-g">
             <div class="pure-u-1">
-              <p>In this page, I humbly share a summary of the <em>things</em> that I frequently report to my co-authors. Many of those <em>things</em> could be called <em>errors</em>, while some others may be considered as a matter of taste.</p>
+              <p>-<strong>- ispell-dictionary: &quot;english&quot; -</strong>- — title: Suggestions for improving scientific writings and the use of LaTeX —</p>
+<p>In this page, I humbly share a summary of the <em>things</em> that I frequently report to my co-authors. Many of those <em>things</em> could be called <em>errors</em>, while some others may be considered as a matter of taste.</p>
 <h2>Some frequent LaTeX mistakes</h2>
 <h3>Use of non-breaking spaces</h3>
 <p>Add an non-breaking space (<code>~</code>) in front of most <code>\cite{…}</code>, <code>\page{…}</code>, etc. For example:</p>
@@ -73,8 +74,11 @@ See figure~\ref{fig:test} on page~\pageref{fig:test}.
 <li>It helps to keep track of word changes across revisions.</li>
 <li>A long text line probably indicates that the sentence is too long and needs to be written differently. The practice of using one text line for each sentence helps identifying text structures that may need some simplification.</li>
 </ul>
-<h3>Don't use your editor's reformatting tools</h3>
-<p>Or this may introduce unwanted changes in the versioning history.</p>
+<h3>Editor settings</h3>
+<ol>
+<li><p>Don't use your editor's reformatting tools</p>
+<p>See my point above about the use of single text lines for each sentence.</p>
+<p>Many editors can automatically reformat long text lines in a nicely formatted paragraph of text (in emacs, this is called word wrapping). You should disable this feature when editing versioned documents, because it may introduce unwanted changes in the versioning history.</p>
 <p>For example, considering this short example:</p>
 <pre class="example"><code>This section presents the existing works that investigate approaches
 to evaluate...
@@ -90,25 +94,34 @@ approaches to evaluate...
 + This section presents the existing works that investigate new
 + approaches to evaluate...
 </code></pre>
-<p>If the sentence is kept in one single text line, git diff correcly reports a single change:</p>
+<p>If the sentence is kept in one single text line, git diff correctly reports a single change:</p>
 <pre class="example"><code>- This section presents the existing works that investigate approaches to evaluate...
 + This section presents the existing works that investigate new approaches to evaluate...
 </code></pre>
 <p>Nota: <code>git diff</code> provides an option to highlight changed words instead of changed lines. The output is more readable with color output (not illustrated here). However, I suggest not to rely on this option of git, because all your co-authors may not be aware of this option, and they will probably not use the same git client.</p>
 <pre class="example"><code>$ git diff --word-diff
 This section presents the existing works that investigate {+new+} approaches to evaluate...
+</code></pre></li>
+<li><p>Delete trailing spaces</p>
+<p>It is a common practice to delete trailing spaces in versioned documents. Here's why. Say A commits changes in a file, with trailing spaces left. Later, B adds some changes, but B's editor automatically deletes trailing spaces. The version control tool will attribute extra changes to B only because of the deletion of trailing spaces! This will make the change look bigger than it is in reality, and the real modifications of the document will be difficult to track because of the noise added.</p>
+<p>Emacs can be configured as follows:</p>
+<pre class="elisp"><code>; show trailing white-spaces
+(setq-default show-trailing-whitespace t)
+; delete trailing spaces when saving the file
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 </code></pre>
+<p>If you know how to configure <a href="https://www.tug.org/texworks/">TeXworks</a> so that it automatically deletes trailing spaces, please let me know!</p></li>
+</ol>
 <h2>Typography</h2>
 <h3>in French</h3>
 <p>For the French typography, read the <a href="https://catalogue.bnf.fr/ark:/12148/cb38887921n.public">Lexique des règles typographiques en usage à l'Imprimerie nationale</a>.</p>
-<p>Non-breaking spaces (<code>~</code> in LaTeX) are required before many punctuations, e.g., <code>?</code>, <code>!</code>, <code>:</code>, <code>;</code>, <code>»</code> (hence, also after <code>«</code>). For example, you would write in LaTeX: <code>«~Salut, la compagnie~!~»</code></p>
+<p>Non-breaking spaces (<code>~</code> in LaTeX) are required before many punctuation marks, e.g., <code>?</code>, <code>!</code>, <code>:</code>, <code>;</code>, <code>»</code> (hence, also after <code>«</code>). For example, you would write in LaTeX: <code>«~Salut, la compagnie~!~»</code></p>
 <p>The <code>babel</code> package, if correctly configured, is usually able to manage the use of non-breaking spaces automatically for you, but YMMV.</p>
 <p>For LaTeX black-belts: <code>\,</code> inserts a <em>thinspace</em>, which is also non-breaking. Mostly used for math notations. LaTeX supports a plethora of different white spaces.</p>
 <h3>in English</h3>
 <p>For the English typography and many other topics related to writing, read the <a href="https://www.pearson.com/us/higher-education/product/Fowler-Little-Brown-Handbook-The-14th-Edition/9780134759722.html">Little, Brown Handbook</a>.</p>
 <p>English does <em>not</em> use non-breaking spaces before punctuation marks. For example, you would write in LaTeX: <code>&quot;Hello, World!&quot;</code>.</p>
-<p>In English, the white space following the full stop at the end of a sentence is longer than other spaces between words. LaTeX automatically takes care of that for you. Other spaces after a dot usually require a normal space, which is annotated <code>\ =.  For example:
-=e.g.\ </code> (even though some manuals of style require the use of a comma after &quot;e.g.&quot; or &quot;i.e.&quot;.</p>
+<p>In English, the white space following the full stop at the end of a sentence is longer than other spaces between words. LaTeX automatically takes care of that for you. Other situations where a dot is used usually require a normal space, which is annotated <code>'\  '</code> (without the surrounding quotation marks) in LaTeX to enforce the use of the space character. For example: <code>'e.g.\ '</code> (although some manuals of style require the use of a comma after 'e.g.' or 'i.e.').</p>
 <h2>Writing style</h2>
 <p>There are many good resources about writing style. My writings are probably not exemplary with regards to writing style, but I suggest here a few things that are not given enough care.</p>
 <p>I recommend these two excellent books, frequently re-edited and revised:</p>
@@ -141,9 +154,9 @@ This section presents the existing works that investigate {+new+} approaches to 
             <a href="https://github.com/damiencourousse/website/commits/master">
               Page last modified
               
-              by commit db56418,
+              by commit 199d50e,
               
-              Mon, 24 Feb 2020 22:29:05 +0100
+              Tue, 30 Jun 2020 09:48:45 +0200
             </a>
             
           </p>
