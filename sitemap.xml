@@ -23,13 +23,6 @@
     </url>
 
     <url>
-        <loc>https://damien.courousse.fr/test.html</loc>
-        <lastmod></lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-
-    <url>
         <loc>https://damien.courousse.fr/posts/2014-11-19-publications-with-hakyll.html</loc>
         <lastmod>Wed, 25 Feb 2015 15:55:42 +0100</lastmod>
         <changefreq>weekly</changefreq>
