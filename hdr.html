@@ -138,6 +138,7 @@
 </table>
 <h2>Mémoire</h2>
 <h3><strong>Application outillée de contre-mesures contre les attaques matérielles</strong></h3>
+<p><a href="pdf/HDR Damien Couroussé - memoire - 0.6.pdf">Version préliminaire [PDF</a>].</p>
 <p><strong>Résumé</strong> : Ce mémoire d'habilitation porte sur la sécurisation des systèmes embarqués contre les attaques par canal auxiliaire et par injection de fautes. Les attaques par canal auxiliaire exploitent des observations physiques du circuit en fonctionnement pour inférer des informations additionnelles, non prévues dans un modèle d'attaquant en cryptanalyse pure, permettant d'altérer une propriété de sécurité, typiquement la confidentialité d'informations manipulées pendant un calcul. Les attaques par injection de fautes exploitent des perturbations physiques du circuit pour induire des effets inattendus dans son fonctionnement. Les conséquences logiques de ces perturbations matérielles permettent d'outrepasser la sécurité du système attaqué, par exemple faire fuir un secret ou obtenir des droits d'administration.</p>
 <p>La première partie du mémoire s'intéresse au potentiel du compilateur pour l'application de contre-mesures logicielles contre les attaques matérielles. Cette question est traitée sous deux aspects. (i) Montrer qu'il est possible d'exploiter le compilateur pour l'application de contre-mesures. Cette question n'est pas triviale puisqu'un compilateur traditionnel s'intéresse seulement aux propriétés fonctionnelles du programme cible, alors que, pour l'application de contre-mesures, on s'intéresse à des propriétés de sécurité, non fonctionnelles. Cette question concerne également l'optimisation de la contre-mesure elle-même et du code ciblé par la protection. (ii) L'utilisation du compilateur comme levier pour la sécurisation de programmes: on exploite le compilateur pour augmenter le potentiel d'une contre-mesure ou pour la rendre paramétrable, donc rendre son application plus flexible. Le compilateur peut ainsi permettre l'implémentation de contre-mesures qui seraient autrement impossibles à mettre en œuvre.</p>
 <p>Dans l'objectif d'adresser des modèles d'attaquants plus puissants, la deuxième partie du mémoire aborde la conception conjointe, logicielle et matérielle, de schémas de protection. Cette problématique est traitée sous deux aspects. (i) Comment exploiter des contre-mesures matérielles et les articuler avec des contre-mesures logicielles pour obtenir une protection à la couverture large permettant de couvrir un scenario d'attaque complet, depuis l'analyse préliminaire de la cible jusqu'à l'exploitation de techniques d’attaque spécifiques. (ii) Comment articuler un schéma de protection logiciel avec des contre-mesures matérielles pour obtenir un niveau de protection global élevé contre les injections de fautes, de manière à assurer l'intégrité complète du chemin d'instructions d'un processeur, en particulier les signaux de contrôle de sa micro-architecture.</p>
@@ -163,9 +164,9 @@
             <a href="https://github.com/damiencourousse/website/commits/master">
               Page last modified
               
-              by commit 326a0ac,
+              by commit 11c14c3,
               
-              Fri, 5 Jul 2024 15:49:35 +0200
+              Wed, 10 Jul 2024 19:48:50 +0200
             </a>
             
           </p>
